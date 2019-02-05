@@ -1,0 +1,236 @@
+/**
+*Student enters the marks obtained in the various subjects of 
+*the semester. Based on the marks it is obtained whether he/she 
+*has passed or failed in the subject. The data is stored in an
+*excel sheet. 
+*/
+
+import xlsxwriter
+
+workbook = xlsxwriter.Workbook('Project.xlsx') #create an excel file of name hello
+worksheet = workbook.add_worksheet('Data') #create an excel sheet of name SEO
+row = 0 #initialize row to 0
+col = 0 #initialize column to 0
+
+
+class student():
+    def __init__(self):
+        self.name = input("Student name: "); #Enter the name of the student
+        self.id = input ("Registration number: "); #Enter the student ID
+        print("\nEnter CSS marksout of 25")
+        worksheet.write(row, col, 'NAME') #Write in the worksheet
+        worksheet.write(row, col+2, 'REGISTRATION NUMBER') 
+        worksheet.write(row, col+1, self.name) 
+        worksheet.write(row, col+3, self.id)
+        
+    def marks(self):
+        print("\n Programming Language Principle");
+        mark1 = float(input("Term 1:"));
+        mark2 = float(input("Term 2:"));
+        a1 = float(input("Assignment 1:"));
+        a2 = float(input("Assignment 2:"));
+        marktotal1 = (mark1+mark2)*35/100
+        atotal1 = (a1+a2)*15/100
+        agg1 = int(marktotal1+atotal1);
+        print("CSS aggregate for PLP: ", agg1,"%");
+        print("\nEnter marks out of 100");
+        p = float(input("Enter marks"));
+        p1 = p*50/100;
+        print("SEE aggregate for PLP:",p1,"%");
+        final1= agg1+p1;
+        print("Final aggreagte marks:",final1,"%")
+        if(final1 >= 40):
+            print("Subject status: PASS");
+            worksheet.write(row+2, col+7, 'PASS')
+        else:
+            print("Subject status: FAIL");
+            worksheet.write(row+2, col+7, 'FAIL')
+        
+        worksheet.write(row+1, col+1, 'TERM 1');
+        worksheet.write(row+1, col+2, 'TERM 2');
+        worksheet.write(row+1, col+3, 'ASSIGNMENT 1');
+        worksheet.write(row+1, col+4, 'ASSIGNMENT 2');
+        worksheet.write(row+1, col+5, 'SEE');
+        worksheet.write(row+1, col+6, 'FINAL MARKS');
+        worksheet.write(row+1, col+7, 'STATUS');
+        
+        worksheet.write(row+2, col+1, mark1);
+        worksheet.write(row+2, col+2, mark2);
+        worksheet.write(row+2, col+3, a1);
+        worksheet.write(row+2, col+4, a2);
+        worksheet.write(row+2, col+5, p );
+        
+
+        
+        print("\n Computer Networks");
+        mark3 = float(input("Term 1:"));
+        mark4 = float(input("Term 2:"));
+        a3 = float(input("Assignment 1:"));
+        a4 = float(input("Assignment 2:"));
+        marktotal2 = (mark3+mark4)*35/100
+        atotal2 = (a3+a4)*15/100
+        agg2 = int(marktotal2+atotal2);
+        print("CSS aggregate for CN: ", agg2,"%");
+        print("\nEnter marks out of 100");
+        cn = float(input("Enter marks"));
+        cn1 = cn*50/100;
+        print("SEE aggregate for CN:",cn1,"%");
+        final2= agg2+cn1;
+        print("Final aggreagte marks:",final2,"%")
+        if(final2 >= 40):
+            print("Subject status: PASS");
+            worksheet.write(row+3, col+7, 'PASS')
+        else:
+            print("Subject status: FAIL");
+            worksheet.write(row+3, col+7, 'FAIL')
+
+        worksheet.write(row+3, col+1, mark3);
+        worksheet.write(row+3, col+2, mark4);
+        worksheet.write(row+3, col+3, a3);
+        worksheet.write(row+3, col+4, a4);
+        worksheet.write(row+3, col+5, cn);
+
+        
+
+        print("\n Computer Simulation");
+        mark5 = float(input("Term 1:"));
+        mark6 = float(input("Term 2:"));
+        a5 = float(input("Assignment 1:"));
+        a6 = float(input("Assignment 2:"));
+        marktotal3 = (mark5+mark6)*35/100
+        atotal3 = (a5+a6)*15/100
+        agg3 = int(marktotal3+atotal3);
+        print("CSS aggregate for CS: ", agg3,"%");
+        print("\nEnter marks out of 100");
+        cs = float(input("Enter marks"));
+        cs1 = cs*50/100;
+        print("SEE aggregate for CS:",cs1,"%");
+        final3= agg3+cs1;
+        print("Final aggreagte marks:",final3,"%")
+        if(final3 >= 40):
+            print("Subject status: Pass");
+            worksheet.write(row+4, col+7, 'PASS')
+        else:
+            print("Subject status: Fail");
+            worksheet.write(row+4, col+7, 'FAIL')
+
+        worksheet.write(row+4, col+1, mark5);
+        worksheet.write(row+4, col+2, mark6);
+        worksheet.write(row+4, col+3, a5);
+        worksheet.write(row+4, col+4, a6);
+        worksheet.write(row+4, col+5, cs);
+
+
+        
+        print("\n Operating Systems");
+        mark7 = float(input("Term 1:"));
+        mark8 = float(input("Term 2:"));
+        a7 = float(input("Assignment 1:"));
+        a8 = float(input("Assignment 2:"));
+        marktotal4 = (mark7+mark8)*35/100
+        atotal4 = (a7+a8)*15/100
+        agg4 = int(marktotal4+atotal4);
+        print("CSS aggregate for OS: ", agg4,"%");
+        print("\nEnter marks out of 100");
+        os = float(input("Enter marks"));
+        os1 = os*50/100;
+        print("SEE aggregate for OS:",os1,"%");
+        final4 = agg4+os1;
+        print("Final aggreagte marks:",final4,"%")
+        if(final4 >= 40):
+            print("Subject status: PASS");
+            worksheet.write(row+5, col+7, 'PASS')
+        else:
+            print("Subject status: FAIL");
+            worksheet.write(row+5, col+7, 'FAIL')
+
+        worksheet.write(row+5, col+1, mark7);
+        worksheet.write(row+5, col+2, mark8);
+        worksheet.write(row+5, col+3, a7);
+        worksheet.write(row+5, col+4, a8);
+        worksheet.write(row+5, col+5, os);
+
+
+        
+        print("\n Discrete Mathematics - 2");
+        mark9 = float(input("Term 1:"));
+        mark10 = float(input("Term 2:"));
+        a9 = float(input("Assignment 1:"));
+        a10 = float(input("Assignment 2:"));
+        marktotal5 = (mark9+mark10)*35/100
+        atotal5 = (a9+a10)*15/100
+        agg5 = int(marktotal5+atotal5);
+        print("CSS aggregate for OS: ", agg5,"%");
+        print("\nEnter marks out of 100");
+        dm = float(input("Enter marks"));
+        dm2 = dm*50/100;
+        print("SEE aggregate for OS:",dm2,"%");
+        final5 = agg5+dm2;
+        print("Final aggreagte marks:",final5,"%")
+        if(final5 >= 40):
+            print("Subject status: PASS");
+            worksheet.write(row+6, col+7, 'PASS')
+        else:
+            print("Subject status: FAIL");
+            worksheet.write(row+6, col+7, 'FAIL')
+
+        worksheet.write(row+6, col+1, mark9);
+        worksheet.write(row+6, col+2, mark10);
+        worksheet.write(row+6, col+3, a9);
+        worksheet.write(row+6, col+4, a10);
+        worksheet.write(row+6, col+5, dm);
+
+        print("\n Economics for Engineers");
+        mark11 = '-';
+        mark12 = '-';
+        a11 = float(input("Assignment 1:"));
+        a12 = '-';
+        atotal6 = a11*15/100
+        agg6 = int(atotal6);
+        print("CSS aggregate for OS: ", agg6,"%");
+        print("\nEnter marks out of 50");
+        e = float(input("Enter marks"));
+        e1 = e*50/100;
+        print("SEE aggregate for OS:",os1,"%");
+        final6 = agg6+e1;
+        print("Final aggreagte marks:",final4,"%")
+        if(final6 >= 40):
+            print("Subject status: PASS");
+            worksheet.write(row+7, col+7, 'PASS')
+        else:
+            print("Subject status: FAIL");
+            worksheet.write(row+7, col+7, 'FAIL')
+
+        worksheet.write(row+7, col+1, mark11);
+        worksheet.write(row+7, col+2, mark12);
+        worksheet.write(row+7, col+3, a11);
+        worksheet.write(row+7, col+4, a12);
+        worksheet.write(row+7, col+5, e);
+
+        worksheet.write(row+2, col, 'PROGRAMMING LANGUAGE PRINCIPLE');
+        worksheet.write(row+3, col, 'COMPUTER NETWORKS');
+        worksheet.write(row+4, col, 'COMPUTER SIMULATION');
+        worksheet.write(row+5, col, 'OPERATING SYSTEMS');
+        worksheet.write(row+6, col, 'DISCRETE MATHEMATICS - 2');
+        worksheet.write(row+7, col, 'ECONOMICS FOR ENGINEERS');
+
+        worksheet.write(row+9, col, 'AVERAGE');
+        worksheet.write(row+9, col+1, (mark1+mark3+mark5+mark7+mark9)/5);
+        worksheet.write(row+9, col+2, (mark2+mark4+mark6+mark8+mark10)/5);
+        worksheet.write(row+9, col+3, (a1+a3+a5+a7+a9+a11)/6);
+        worksheet.write(row+9, col+4, (a2+a4+a6+a8+a10)/5);
+        worksheet.write(row+9, col+5, (p+cn+cs+os+dm+e)/6);
+        worksheet.write(row+9, col+6, (agg1+p1+agg2+cn1+agg3+cs1+agg5+dm2+agg6+e1)/6);
+
+        worksheet.write(row+2, col+6, agg1+p1);
+        worksheet.write(row+3, col+6, agg2+cn1);
+        worksheet.write(row+4, col+6, agg3+cs1);
+        worksheet.write(row+5, col+6, agg4+os1);
+        worksheet.write(row+6, col+6, agg5+dm2);
+        worksheet.write(row+7, col+6, agg6+e1);
+
+         
+s = student() #Calling the class by defining it in an object 's'
+s.marks() #Calling the fucntion marks in class student 
+workbook.close() #close the workbook
+        
